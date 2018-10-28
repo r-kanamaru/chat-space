@@ -5,37 +5,48 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|e_mail|string|null: false|
-|password|text|null: false|
+|e_mail|string|null: false , unique: true|
+|password|text|null: false , unique: true|
 
 ### Association
-- has_many :groups,through: :messages
+- has_many :groups,through: :members
 - has_many :messages
 
 
-## groupテーブル
+## groupsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|
+|name|string|null: false , unique: true|
 
 ### Association
-- has_many :users,through: :mesages
-- has_many:messages
-- accepts_nested_attributes_for :messages
+- has_many :users,through: :members
+- has_many :messages
+
+
+## membersテーブル(中間テーブル)
+
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
+
+### Association
+- belongs_to :group
+- belongs_to :user
 
 
 ## messagesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false,index: true,foreign_key: true|
-|group_id|integer|null: false,index: true,foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
 |body|text|null: false|
 |image|string|null: false|
 
 ### Association
-- belongs_to :group
-- belongs_to :user
+belongs_to :user
+belongs_to :group
 
 * ...
