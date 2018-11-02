@@ -6,10 +6,10 @@
    .contents__left--top_user_name name
    = link_to root_path do
     .contents__left--top_icon
-     = fa_icon("edit")
+     = fa_icon("cog")
    = link_to root_path do
     .contents__left--top_icon
-     = fa_icon("cog")
+     = fa_icon("edit")
 
   .contents__left--main
    .contents__left--main_room_name chat-room-name
@@ -32,5 +32,11 @@
    .contents__right--main__message_text hello
 
   .contents__right--bottom
-   %input
-   .contents__right--bottom_submit SEND
+   %form
+    %input
+     .contents__right--bottom_icon
+      %label
+       %input.image_file{:name => "image_file", :type => "file"}
+       %i.fa.fa-file-image-o
+     .contents__right--bottom_submit SEND
+
