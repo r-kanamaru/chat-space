@@ -10,7 +10,6 @@
    = link_to root_path do
     .contents__left--top_icon
      = fa_icon("edit")
-
   .contents__left--main
    .contents__left--main_room_name chat-room-name
    .contents__left--main_room_message hello
@@ -20,12 +19,10 @@
    .contents__right--top_room
     .contents__right--top_room_name chat-room-name
     .contents__right--top_room_button edit
-
   .contents__right--main
    .contents__right--main__room_wrapper
     .contents__right--main__room_member MEMBER :
     .contents__right--main__room_name name name
-
    .contents__right--main__message
     .contents__right--main__message_name name
     .contents__right--main__message_day 2018/10/31
@@ -39,4 +36,3 @@
        %input.image_file{:name => "image_file", :type => "file"}
        %i.fa.fa-file-image-o
      .contents__right--bottom_submit SEND
-
