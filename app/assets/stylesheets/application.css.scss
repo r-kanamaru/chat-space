@@ -37,7 +37,7 @@ body{
 
     &--top{
       background-color: $left_top_color;
-      width:$left_contents_widht;
+      width:calc($left_contents_widht-30px);
       height:80px;
       padding:$left_contents_padding;
       &_user_name{
@@ -50,7 +50,7 @@ body{
       &_icon{
         color:$white;
         line-height:90px;
-        padding-right:50px;
+        margin-right: 20px ;
         float:right;
       }
     }
@@ -81,7 +81,7 @@ body{
     &--top{
       width:  calc(100% - 80px);
       height:80px;
-      background-color:$white;
+      background-color:#white;
       padding:$right_contents_padding;
       border-bottom:2px solid $border_color ;
       &_room_name{
@@ -99,7 +99,7 @@ body{
       }
     }
     &--main{
-      width: calc(100% - 80px);
+      width: calc(100% - 300px);
       height: calc(100% - 170px);
       background-color:#white;
       padding:$right_contents_padding;

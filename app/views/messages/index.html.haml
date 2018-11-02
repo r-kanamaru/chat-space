@@ -4,9 +4,12 @@
  .contents__left
   .contents__left--top
    .contents__left--top_user_name name
-   .contents__left--top_icon
-    = fa_icon("edit")
-    = fa_icon("cog")
+   = link_to root_path do
+    .contents__left--top_icon
+     = fa_icon("edit")
+   = link_to root_path do
+    .contents__left--top_icon
+     = fa_icon("cog")
 
   .contents__left--main
    .contents__left--main_room_name chat-room-name
