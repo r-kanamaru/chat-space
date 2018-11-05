@@ -1,5 +1,6 @@
 @import './reset';
 @import './variable';
+@import './user';
 @import 'font-awesome';
 
 html{
@@ -23,6 +24,16 @@ body{
   text-align  : center ;
   position : fixed ;
   display  : none ;
+}
+.notice{
+  background-color:#dff0d8;
+  color:#3c763d;
+  text-align:center;
+}
+.alert{
+  background-color:#f2dede;
+  color:#a94442;
+  text-align:center;
 }
 .contents{
   width  : 100% ;
