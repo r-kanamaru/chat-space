@@ -8,21 +8,25 @@
 
    = link_to edit_user_path(current_user) do
     .contents__left--top_icon
-     = fa_icon("cog")
-
+     = fa_icon "cog",class: 'icon'
    = link_to new_group_path do
     .contents__left--top_icon
-     = fa_icon("edit")
+     = fa_icon "edit",class: 'icon'
 
   .contents__left--main
-   .contents__left--main_room_name chat-room-name
-   .contents__left--main_room_message hello
+   - current_user.groups.each do|group|
+    = link_to group_messages_path(group) do
+     .contents__left--main_room_name
+      = group.name
+     .contents__left--main_room_message
+      hello
 
  .contents__right
   .contents__right--top
    .contents__right--top_room
     .contents__right--top_room_name chat-room-name
-    .contents__right--top_room_button edit
+    = link_to edit_group_path(current_user) do
+     .contents__right--top_room_button edit
   .contents__right--main
    .contents__right--main__room_wrapper
     .contents__right--main__room_member MEMBER :
