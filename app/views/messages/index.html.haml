@@ -1,25 +1,5 @@
-%header.header グループ作成成功
-
 .contents
- .contents__left
-  .contents__left--top
-   %h3.contents__left--top_user_name
-    =current_user.name
-
-   = link_to edit_user_path(current_user) do
-    .contents__left--top_icon
-     = fa_icon "cog",class: 'icon'
-   = link_to new_group_path do
-    .contents__left--top_icon
-     = fa_icon "edit",class: 'icon'
-
-  .contents__left--main
-   - current_user.groups.each do|group|
-    = link_to group_messages_path(group) do
-     .contents__left--main_room_name
-      = group.name
-     .contents__left--main_room_message
-      hello
+ = render 'side_bar'
 
  .contents__right
   .contents__right--top
@@ -27,6 +7,7 @@
     .contents__right--top_room_name chat-room-name
     = link_to edit_group_path(current_user) do
      .contents__right--top_room_button edit
+
   .contents__right--main
    .contents__right--main__room_wrapper
     .contents__right--main__room_member MEMBER :

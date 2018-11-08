@@ -1,0 +1,19 @@
+.contents__left
+
+ .contents__left--top
+  %h3.contents__left--top_user_name
+   =current_user.name
+  = link_to edit_user_path(current_user) do
+   .contents__left--top_icon
+    = fa_icon "cog",class: 'icon'
+  = link_to new_group_path do
+   .contents__left--top_icon
+    = fa_icon "edit",class: 'icon'
+
+ .contents__left--main
+  - current_user.groups.each do|group|
+   = link_to group_messages_path(group) do
+    .contents__left--main_room_name
+     = group.name
+    .contents__left--main_room_message
+     hello
