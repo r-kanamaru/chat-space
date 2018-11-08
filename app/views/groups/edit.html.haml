@@ -1,30 +1,3 @@
 .chat-group-form
-  %h1 チャットグループ編集
-  = form_for current_user do |form|
-    .chat-group-form__field.clearfix
-      .chat-group-form__field--left
-        = form.label :name, class: "chat-group-form__label"
-      .chat-group-form__field--right
-        = form.text_field :name, id: "chat_group_name", class: "chat-group-form__input", placeholder: "グループ名を入力してください"
-    .chat-group-form__field.clearfix
-
-
-      / この部分はインクリメンタルサーチ（ユーザー追加の非同期化のときに使用します
-      /
-        <div class='chat-group-form__field--left'>
-        <label class="chat-group-form__label" for="chat_group_チャットメンバーを追加">チャットメンバーを追加</label>
-        </div>
-        <div class='chat-group-form__field--right'>
-        <div class='chat-group-form__search clearfix'>
-        <input class='chat-group-form__input' id='user-search-field' placeholder='追加したいユーザー名を入力してください' type='text'>
-        </div>
-        <div id='user-search-result'></div>
-        </div>
-    .chat-group-form__field.clearfix
-      .chat-group-form__field--left
-        %label.chat-group-form__label{:for => "chat_group_チャットメンバー"} チャットメンバー
-    .chat-group-form__field.clearfix
-      .chat-group-form__field--left
-      .chat-group-form__field--right
-        = form.collection_check_boxes :id, User.all, :id, :name
-        = form.submit class: "chat-group-form__action-btn"
+ %h1 チャットグループ編集
+ = render 'form' , group: @group
