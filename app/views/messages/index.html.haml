@@ -4,24 +4,24 @@
  .contents__right
   .contents__right--top
    .contents__right--top_room
-    .contents__right--top_room_name chat-room-name
+    .contents__right--top_room_name
+     = @group.name
     = link_to edit_group_path(current_user) do
      .contents__right--top_room_button edit
 
   .contents__right--main
    .contents__right--main__room_wrapper
     .contents__right--main__room_member MEMBER :
-    .contents__right--main__room_name name name
-   .contents__right--main__message
-    .contents__right--main__message_name name
-    .contents__right--main__message_day 2018/10/31
-   .contents__right--main__message_text hello
+    - @group.users.each do|member|
+     .contents__right--main__room_name
+      = member.name
+   = render @messages
 
   .contents__right--bottom
-   %form
-    %input
-     .contents__right--bottom_icon
-      %label
-       %input.image_file_select{name: "image_file", type: "file"}
-       = fa_icon("file-image-o")
-     .contents__right--bottom_submit SEND
+   = form_for [@group,@message] do |f|
+    = f.text_field :content, placeholder: "message!", class: 'input'
+    .contents__right--bottom_icon
+     %label
+      = f.file_field :image, class: "image_file_select"
+      = fa_icon("file-image-o")
+    = f.submit 'SEND', class: "contents__right--bottom_submit"

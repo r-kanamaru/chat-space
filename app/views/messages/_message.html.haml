@@ -1,0 +1,9 @@
+.contents__right--main__message
+ .contents__right--main__message_name
+  = message.user.name
+ .contents__right--main__message_day
+  = message.created_at
+ .contents__right--main__message_text
+  - if message.content.present?
+   = message.content
+   = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
