@@ -97,7 +97,7 @@ body{
     }
 }
 .contents__right--main{
-  width  : calc(100% - 300px) ;
+  width  : calc(100% - 80px ) ;
   height : calc(100% - 170px) ;
   background-color : #white ;
   padding : $right_contents_padding ;
@@ -163,7 +163,7 @@ body{
       float : left ;
     }
 }
-input{
+.input{
   height : 50px ;
   width  : 80% ;
   font-size  : 16px ;
@@ -173,4 +173,8 @@ input{
 }
 .image_file_select{
   display : none ;
+}
+.lower-message__image{
+  max-width:300px;
+  max-height:300px;
 }
