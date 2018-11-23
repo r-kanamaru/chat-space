@@ -41,6 +41,7 @@ body{
   width  : calc($left_contents_widht - 30px) ;
   height : 80px ;
   padding : $left_contents_padding ;
+  padding-bottom:10px;
     &_user_name{
       color :  $white ;
       font-size   : 16px ;
@@ -58,7 +59,8 @@ body{
 .contents__left--main{
   background-color : $left_main_color ;
   width  : $left_contents_widht - 40px ;
-  height : calc(100% - 78px) ;
+  height : calc(100% - 88px) ;
+  overflow-y : auto ;
   padding: $left_contents_padding ;
     &_room_name{
       color : $white ;
@@ -78,7 +80,7 @@ body{
 }
 .contents__right--top{
   width  : calc(100% - 80px) ;
-  height : 80px ;
+  height : 90px ;
   background-color : #white ;
   padding : $right_contents_padding ;
   border-bottom : 2px solid $border_color ;
@@ -98,7 +100,8 @@ body{
 }
 .contents__right--main{
   width  : calc(100% - 80px ) ;
-  height : calc(100% - 170px) ;
+  height : calc(100% - 180px) ;
+  overflow-y: auto;
   background-color : #white ;
   padding : $right_contents_padding ;
   float : left ;
@@ -135,6 +138,12 @@ body{
       line-height : 14px ;
       color : $message_font ;
       padding-bottom : 40px ;
+      float : left ;
+      clear : both ;
+    }&__message_image{
+      padding-bottom : 40px ;
+      max-height:500px;
+      max-width:100%;
       float : left ;
       clear : both ;
     }
