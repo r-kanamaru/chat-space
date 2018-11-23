@@ -7,14 +7,11 @@ def index
 end
 
 def create
-  @message=@group.messages.new(message_params)
-  if @message.save
-    redirect_to group_messages_path(@group), notice: "メッセージを送信しました"
-  else
-    flash.now[:alert]="メッセージを入力してください"
-    @messages = @group.messages.includes(:user)
-    render :index
-  end
+  @message=@group.messages.create(message_params)
+    respond_to do |format|
+      format.html { redirect_to group_messages_path(@group), notice: "html!" }
+      format.json
+    end
 end
 
 private

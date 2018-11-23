@@ -9,16 +9,17 @@
     = link_to edit_group_path(current_user) do
      .contents__right--top_room_button edit
 
-  .contents__right--main
+  .contents__right--main#scroll
    .contents__right--main__room_wrapper
     .contents__right--main__room_member MEMBER :
     - @group.users.each do|member|
      .contents__right--main__room_name
       = member.name
-   = render @messages
+   .contents__right--main__message
+
 
   .contents__right--bottom
-   = form_for [@group,@message] do |f|
+   = form_for [@group,@message] ,html:{id:'new_comment'} do |f|
     = f.text_field :content, placeholder: "message!", class: 'input'
     .contents__right--bottom_icon
      %label
