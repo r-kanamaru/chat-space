@@ -24,7 +24,13 @@ def update
   else
     render :edit
   end
+end
 
+def search
+  @users = User.where.not(name: current_user.name).where('name LIKE(?)', "#{params[:keyword]}%").limit(20)
+  respond_to do|format|
+    format.json
+  end
 end
 
 private
