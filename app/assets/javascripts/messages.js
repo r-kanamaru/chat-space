@@ -4,18 +4,20 @@ $(function(){
     var addImgTag = (message.image.url !== null)? `<img src="${ message.image.url }", class="contents__right--main__message_image">`:''
 
     var html =`
-      <div class="contents__right--main__message_name">
-        ${ message.user_name }
+      <li class="contents__right--main__message_wrapper" data-message-id="${message.id}">
+        <div class="contents__right--main__message_name">
+          ${ message.user_name }
+        </div>
+        <div class="contents__right--main__message_day">
+          ${ message.created_at }
+        </div>
+        <div class="contents__right--main__message_text">
+          ${ message.message }
+        </div>
+        ${addImgTag}
       </div>
-      <div class="contents__right--main__message_day">
-        ${ message.created_at }
-      </div>
-      <div class="contents__right--main__message_text">
-        ${ message.message }
-      </div>
-      ${addImgTag}
       `
-  return html;
+    return html;
   }
 
   $('#new_comment').on('submit', function(e){
