@@ -1,4 +1,4 @@
-.contents__right--main__message
+%li.contents__right--main__message_wrapper{"data-message-id": "#{message.id}"}
  .contents__right--main__message_name
   = message.user.name
  .contents__right--main__message_day
@@ -6,4 +6,4 @@
  .contents__right--main__message_text
   - if message.content.present?
    = message.content
-   = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
+   = image_tag message.image.url, class: 'contents__right--main__message_image' if message.image.present?
