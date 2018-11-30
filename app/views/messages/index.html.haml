@@ -15,8 +15,9 @@
     - @group.users.each do|member|
      .contents__right--main__room_name
       = member.name
-   .contents__right--main__message
 
+   %ul.contents__right--main__message
+    = render @messages
 
   .contents__right--bottom
    = form_for [@group,@message] ,html:{id:'new_comment'} do |f|
