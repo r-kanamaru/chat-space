@@ -15,8 +15,17 @@
     - @group.users.each do|member|
      .contents__right--main__room_name
       = member.name
-   .contents__right--main__message
 
+   %ul.contents__right--main__message
+    - @messages.each do|message|
+     %li.contents__right--main__message_wrapper{"data-message-id": "#{message.id}"}
+      .contents__right--main__message_name
+       = message.user.name
+      .contents__right--main__message_day
+       = message.created_at
+      .contents__right--main__message_text
+       = message.content
+      %img.contents__right--main__message_image{src: "#{ message.image }"}
 
   .contents__right--bottom
    = form_for [@group,@message] ,html:{id:'new_comment'} do |f|
