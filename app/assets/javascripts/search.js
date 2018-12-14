@@ -34,8 +34,7 @@ $(document).on('turbolinks:load', function() {
       alert('検索失敗！');
     });
   });
-  $(function(e){
-  $(document).on('click',".chat-group-user__btn--add",function(){
+  $(document).on('click',".chat-group-user__btn--add",function(e){
     var user_name = $(this).prev('p').text();
     var user_id = $(this).attr("data-user-id");
     $(this).parent().remove();
@@ -47,10 +46,9 @@ $(document).on('turbolinks:load', function() {
         <a class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</a>
       </div>`
     added_member.append(html);
+    e.preventDefault();
   });
   $(document).on('click',".js-remove-btn",function(){
     $(this).parent().remove();
-  });
-     e.preventDefault();
   });
 });

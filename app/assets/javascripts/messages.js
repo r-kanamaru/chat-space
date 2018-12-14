@@ -40,7 +40,7 @@ $(document).on('turbolinks:load', function() {
       $('#scroll').animate({scrollTop:$('#scroll')[0].scrollHeight});
     })
     .fail(function(){
-      alert('メッセージ送信に失敗しました')
+      console.log('メッセージ送信に失敗しました')
     });
   });
 });
