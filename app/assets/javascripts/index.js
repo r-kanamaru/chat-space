@@ -46,7 +46,7 @@ $(document).on('turbolinks:load', function() {
         $('#scroll').animate({scrollTop:$('#scroll')[0].scrollHeight});
       })
       .fail(function(){
-        alert('自動更新に失敗しました');
+        console.log('自動更新に失敗しました');
       });
     };
   });
