@@ -34,13 +34,14 @@ $(document).on('turbolinks:load', function() {
       alert('検索失敗！');
     });
   });
+  $(function(e){
   $(document).on('click',".chat-group-user__btn--add",function(){
     var user_name = $(this).prev('p').text();
     var user_id = $(this).attr("data-user-id");
     $(this).parent().remove();
     var added_member = $('#chat-group-users');
     var html = `
-      <div class='chat-group-user clearfix js-chat-member' id='chat-group-user'>
+      <div class='chat-group-user clearfix js-chat-member' id='chat-group-user-child'>
         <input name='group[user_ids][]' type='hidden' value='${user_id}'>
         <p class='chat-group-user__name'>${user_name}</p>
         <a class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</a>
@@ -49,5 +50,7 @@ $(document).on('turbolinks:load', function() {
   });
   $(document).on('click',".js-remove-btn",function(){
     $(this).parent().remove();
+  });
+     e.preventDefault();
   });
 });
