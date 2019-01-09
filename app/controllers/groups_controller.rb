@@ -27,7 +27,13 @@ def update
 end
 
 def search
-  @users = User.where.not(name: current_user.name).where('name LIKE(?)', "#{params[:keyword]}%").limit(20)
+  if params[:group_id].present?
+    @group = Group.find(params[:group_id])
+    @ids = @group.users.ids
+    @users = User.where.not(id: @ids).where('name LIKE(?)', "#{params[:keyword]}%").limit(20)
+  else
+    @users = User.where.not(id:current_user.id).where('name LIKE(?)', "#{params[:keyword]}%").limit(20)
+  end
   respond_to do|format|
     format.json
   end

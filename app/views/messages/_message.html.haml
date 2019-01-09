@@ -2,7 +2,7 @@
  .contents__right--main__message_name
   = message.user.name
  .contents__right--main__message_day
-  = message.created_at
+  = message.created_at.to_s(:published_on)
  .contents__right--main__message_text
   - if message.content.present?
    = message.content

@@ -6,7 +6,7 @@
   = link_to edit_user_path(current_user) do
    .contents__left--top_icon
     = fa_icon "cog",class: 'icon'
-  = link_to new_group_path do
+  = link_to new_group_path,data:{"turbolinks"=>false} do
    .contents__left--top_icon
     = fa_icon "edit",class: 'icon'
 
