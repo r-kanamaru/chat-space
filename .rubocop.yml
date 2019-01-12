@@ -1,0 +1,35 @@
+  #bundle exec rubocop --auto-gen-configにより自動記述
+  #.rubocop.todo.ymlに違反無効化のリストが生成され、rubocop.todo.ymlの内容を本ファイルに読み込む記述
+inherit_from: .rubocop_todo.yml
+
+
+AllCops:
+
+  # 除外するディレクトリ（自動生成されたファイル）
+  # デフォルト設定にある"vendor/**/*"が無効化されないように記述
+  Exclude:
+    - bin/*
+    - db/schema.rb
+    - node_modules/**/*
+    - db/migrate/*
+    - vendor/**/*
+
+  # Rails向けのRails cops(rails向けにカスタマイズされた規約でのチェック)を実行するかどうか。"rubocop -R"と同じ
+  Rails:
+    enabled: true
+
+# "Missing top-level class documentation comment(一行目がclass〜から始まる)."を無効
+Style/Documentation:
+  Enabled: false
+
+# "Prefer single-quoted strings when you don't need string interpolation or special symbols.(シングルクオート)"を無効
+Style/StringLiterals:
+  Enabled: false
+
+# "Line is too long(行の長さ)"を無効
+Metrics/LineLength:
+  Enabled: false
+
+#'frozen_string_literal(文字列リテラルの宣言、互換性対策): true'を無効
+Style/FrozenStringLiteralComment:
+  Enabled: false
