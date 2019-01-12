@@ -4,7 +4,7 @@ if @new_message.present?
     json.user_id  message.user_id
     json.content  message.content
     json.image message.image
-    json.created_at message.created_at
+    json.created_at message.created_at.to_s(:published_on)
     json.id message.id
   end
 end
