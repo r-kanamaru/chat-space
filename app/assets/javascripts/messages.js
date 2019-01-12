@@ -14,7 +14,9 @@ $(document).on('turbolinks:load', function() {
         <div class="contents__right--main__message_text">
           ${ message.message }
         </div>
-        ${addImgTag}
+        <div class="contents__right--main__message_image">
+          ${addImgTag}
+        </div>
       </div>
       `
     return html;
@@ -23,7 +25,8 @@ $(document).on('turbolinks:load', function() {
   $('#new_comment').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
-    if( $('.input').val() == "" ){
+    if( $('.input').val() == ""
+     && $('.image_file_select').val() == "" ){
       alert('メッセージを入力して下さい')
       return false;
     }

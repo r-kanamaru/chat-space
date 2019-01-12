@@ -6,4 +6,5 @@
  .contents__right--main__message_text
   - if message.content.present?
    = message.content
-   = image_tag message.image.url, class: 'contents__right--main__message_image' if message.image.present?
+ .contents__right--main__message_image
+  = image_tag message.image.url, class: 'contents__right--main__message_image' if message.image.present?
