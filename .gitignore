@@ -13,7 +13,26 @@
 !/log/.keep
 !/tmp/.keep
 
-# Ignore Byebug command history file.
+# Ignore other unneeded files.
+doc/
+*.swp
+*~
+.project
+.DS_Store
+.idea
+.secret
+
+/node_modules
+/yarn-error.log
+
 .byebug_history
-public/uploads/*
-config/secrets.yml
+
+/public/uploads/*
+/vendor/cache/*
+/vendor/bundle/*
+/config/secrets.yml
+
+
+
+
+
